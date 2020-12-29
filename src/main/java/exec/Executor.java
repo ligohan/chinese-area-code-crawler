@@ -28,7 +28,9 @@ public class Executor {
      */
     private static final Area ROOT_AREA = new Area("34", "安徽省", "安徽省", null, false);
 
-    private static final String TARGET_FILE = "D:\\34.csv";
+    private static final int YEAR = 2020;
+
+    private static final String TARGET_FILE = "\\Users\\lijun\\Downloads\\area.csv";
 
     private static OkHttpClient HTTP_CLIENT = new OkHttpClient();
 
@@ -77,7 +79,7 @@ public class Executor {
 
     private static List<Area> resolveInternal(Area parentArea) throws IOException {
         StringBuilder urlBuilder = new StringBuilder();
-        urlBuilder.append("http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2018");
+        urlBuilder.append("http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/" + YEAR);
 
         String parentCode = parentArea.code;
 
