@@ -28,9 +28,9 @@ public class Executor {
      */
     private static final Area ROOT_AREA = new Area("34", "安徽省", "安徽省", null, false);
 
-    private static final int YEAR = 2020;
+    private static final int YEAR = 2021;
 
-    private static final String TARGET_FILE = "\\Users\\lijun\\Downloads\\area.csv";
+    private static final String TARGET_FILE = "/Users/lijun/Downloads/area.csv";
 
     private static OkHttpClient HTTP_CLIENT = new OkHttpClient();
 
@@ -101,7 +101,7 @@ public class Executor {
             }
 
             byte[] bs = response.body().bytes();
-            Document document = Jsoup.parse(new String(bs, "GBK"));
+            Document document = Jsoup.parse(new String(bs, StandardCharsets.UTF_8));
             Elements elements = document.getElementsByClass("citytable");
             if (elements.size() != 1) {
                 elements = document.getElementsByClass("countytable");
